@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}URL Shortener Submission Portal{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="url">Shorten a URL</label>
+    <input name="url" id="url" required>
+    <input type="submit" name="shorten_url" value="Submit">
+  </form>
+  {% if response["response"] == 201 %}
+    <h5>
+      Successfully generated a short URL for {{response["content"]["long_url"]}}!<br/>
+      The corresponding short url is: {{response["content"]["short_url"]}}
+    </h5>
+    <h5>
+      
+      You may redirect to the long url by entering the short url below and hitting "Submit."
+    </h5>
+  {% endif %}
+  <form method="post">
+    <label for="url">Redirect via a short URL</label>
+    <input name="url" id="url" required>
+    <input type="submit" name="redirect_url" value="Submit">
+  </form>
+  {% if response["response"] == 404 %}
+  <h5>
+    No URL found matching your submission. Please verify that it is correct.
+  <h5/>
+  {% endif %}
+{% endblock %}

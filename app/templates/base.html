@@ -1,0 +1,21 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} URL Shortener</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<nav>
+  <h3>Helpful Links</h3>
+  <ul>
+    <li><a href="{{ url_for('index.index') }}">Welcome/About</a>
+    <li><a href="{{ url_for('submit.submit') }}">Submit a URL</a>
+    <li><a href="https://github.com/breid1313">Brian's GitHub</a>
+    <li><a href="https://www.linkedin.com/in/brian-reid-20960569/">Brian's LinkedIn</a>
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
