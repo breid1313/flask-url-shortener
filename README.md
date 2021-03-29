@@ -11,6 +11,7 @@ a previously returned short URL and returns the full, unabbreviated URL to the r
 Python3 and pip are required to run this application. If you require either of these resources, please consult the following:
 
 [Install Python](https://www.python.org/downloads/)
+
 [Install pip](https://pip.pypa.io/en/stable/installing/)
 
 ### Install Python package requirements
